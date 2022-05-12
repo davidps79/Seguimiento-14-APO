@@ -2,14 +2,13 @@ package controller;
 
 import java.io.IOException;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 
 import application.Main;
-import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class MainViewController {
@@ -23,21 +22,32 @@ public class MainViewController {
 
     @FXML
     private Label middayIndicator;
+    
+    private boolean flag;
 
     @FXML
     public void initialize() {
+    	flag = true;
+    	DateTimeFormatter clockFormat = DateTimeFormatter.ofPattern("hh:mm:ss");
+    	DateTimeFormatter noonFormat = DateTimeFormatter.ofPattern("a");
+    	
 	    Task<Void> task = new Task<Void>() {
 	        @Override
 	        public Void call() throws InterruptedException {
-	        	for (int i=0; i<50; i++) {
+	        	while (flag) {
 	        		Thread.sleep(1000);
-	        		updateMessage(i + ":");
+	        		LocalTime time = LocalTime.now();
+	        		updateMessage(time.format(clockFormat));
+	        		updateTitle(time.format(noonFormat));
 	        	}
-	            return null ;
+	        	
+	            return null;
 	        }
 	    };
 
 	    mainClock.textProperty().bind(task.messageProperty());
+	    middayIndicator.textProperty().bind(task.titleProperty());
+
 	    (new Thread(task)).start();
     }
     
@@ -47,9 +57,6 @@ public class MainViewController {
 
 	@FXML VBox content;
 
-	public void setMainClock(LocalTime time) {
-	}
-	
 	public void setTime(LocalTime time, Label mainClock) {
 		String s = "" + time.getHour();
 		s += ":";
