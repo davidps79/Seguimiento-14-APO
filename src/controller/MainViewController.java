@@ -131,6 +131,6 @@ public class MainViewController {
 	
 	@FXML
 	public void toCronometer() {
-		
+		main.openCronometer();
 	}
 }

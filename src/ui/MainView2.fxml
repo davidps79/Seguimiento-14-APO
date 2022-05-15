@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController2">
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,14 +34,14 @@
                         </Label>
                         <HBox alignment="BASELINE_LEFT" prefWidth="200.0" spacing="10.0">
                            <children>
-                              <Label fx:id="mainClock" contentDisplay="CENTER" text="mm:ss">
+                              <Label fx:id="mainTimer" contentDisplay="CENTER" text="00:00">
                                  <font>
-                                    <Font size="64.0" />
+                                    <Font size="48.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="middayIndicator" contentDisplay="CENTER" text="mm">
+                              <Label fx:id="secondsTimer" contentDisplay="CENTER" text="00">
                                  <font>
-                                    <Font size="24.0" />
+                                    <Font size="36.0" />
                                  </font>
                               </Label>
                            </children>
@@ -51,8 +51,8 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxWidth="200.0" prefHeight="40.0" prefWidth="20.0" spacing="15.0" VBox.vgrow="NEVER">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#stopCronometer" text="Pausar" />
-                              <Button mnemonicParsing="false" onAction="#toggleCronometer" text="Iniciar" />
+                              <Button mnemonicParsing="false" onAction="#stopCronometer" text="Detener" />
+                              <Button fx:id="toggleButton" mnemonicParsing="false" onAction="#toggleCronometer" text="Iniciar" />
                               <Button mnemonicParsing="false" onAction="#addLap" text="Vuelta" />
                            </children>
                         </HBox>

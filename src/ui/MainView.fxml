@@ -71,7 +71,7 @@
                                  </padding></VBox>
                            </content>
                         </ScrollPane>
-                        <Button fx:id="addTimeZoneButton" mnemonicParsing="false" onAction="#addTimeZone" text="+">
+                        <Button fx:id="addTimeZoneButton" mnemonicParsing="false" onAction="#addTimeZone" text="Agregar Zona">
                            <VBox.margin>
                               <Insets top="20.0" />
                            </VBox.margin>

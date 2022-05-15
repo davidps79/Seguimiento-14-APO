@@ -1,5 +1,6 @@
 package application;
 	
+import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import controller.*;
@@ -24,7 +25,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		back = new TimeSystem(); 
-
+		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MainView.fxml"));
 			BorderPane root = (BorderPane) loader.load();
@@ -35,8 +36,36 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("../ui/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Seguimiento 14");
-			//primaryStage.getIcons().add(new Image(""));
 			primaryStage.show();
+			currentStage = primaryStage;
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void openCronometer() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MainView2.fxml"));
+			BorderPane root = (BorderPane) loader.load();
+			MainViewController2 controller = loader.getController();
+			controller.setMain(this);
+			Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
+			scene.getStylesheets().add(getClass().getResource("../ui/application.css").toExternalForm());
+			currentStage.setScene(scene);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void openClock() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MainView.fxml"));
+			BorderPane root = (BorderPane) loader.load();
+			MainViewController controller = loader.getController();
+			controller.setMain(this);
+			Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
+			scene.getStylesheets().add(getClass().getResource("../ui/application.css").toExternalForm());
+			currentStage.setScene(scene);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -67,6 +96,9 @@ public class Main extends Application {
 
 	public void closePopUp() {
 		popUpStage.close();
-		mainViewController = null;
+	}
+
+	public TimeSystem getBack() {
+		return back;
 	}
 }
