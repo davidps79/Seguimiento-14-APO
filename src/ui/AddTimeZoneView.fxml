@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="300.0" minHeight="200.0" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddTimeZoneController">
+   <center>
+      <VBox alignment="CENTER" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Seleccione la zona horaria" />
+            <ComboBox fx:id="timeZoneOptions" prefWidth="150.0" promptText="Zona horaria" />
+            <Button fx:id="addTimeZoneButton" mnemonicParsing="false" onAction="#addTimeZone" text="Agregar" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
