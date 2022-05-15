@@ -55,7 +55,7 @@ public class MainViewController2 {
 
     @FXML
     void addLap(ActionEvent event) {
-    	main.getBack().addLap(counter, CronometerThread.getDuration(), CronometerThread.getTotal());
+    	//main.getBack().addLap(counter, CronometerThread.getDuration(), CronometerThread.getTotal());
     	counter++;
     }
 
